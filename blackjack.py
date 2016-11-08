@@ -53,8 +53,7 @@ class Deck:
 
 
 def deal():
-    account = 100
-    print("Welcome to Blackjack!!!\nYour account: {}$".format(account))
+    print("Welcome to Blackjack!!!")
     d = Deck()
     d.shuffle()
     points = 0
@@ -102,11 +101,9 @@ def deal():
                 continue
         else:
             print("You lose!\n You have {} points".format(points))
-            account -= 10
             print(hand)
             if play_again():
-                deal()
-
+                main()
         while dealer_points < 17:
             current_card = d[0]
             dealer_hand.append(current_card)
@@ -124,13 +121,10 @@ def deal():
             print('Dealer cards: {}'.format(dealer_hand))
             print('Your points: {}'.format(points))
             print('Your cards: {}'.format(hand))
-            account += 10
             if play_again():
-                deal()
-
+                main()
         if dealer_points > points:
             print("You lose")
-            account -= 10
         elif dealer_points == points:
             print("Its a draw")
         else:
@@ -139,17 +133,16 @@ def deal():
         print('Dealer cards: {}'.format(dealer_hand))
         print('Your points: {}'.format(points))
         print('Your cards: {}'.format(hand))
-        account += 10
         if play_again():
-            deal()
+            main()
     elif points > 21:
         print("You lose")
         if play_again():
-            deal()
+            main()
     else:
         print("You won!!!")
         if play_again():
-            deal()
+            main()
 
 
 def another_card():
@@ -235,13 +228,11 @@ def check_for_ace(hand):
             return True
 
 
-
 def main():
     os.system('clear')
     deal()
 
 
-#deal()
-#count_points()
+
 
 main()

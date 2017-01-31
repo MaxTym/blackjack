@@ -24,7 +24,6 @@ class Card:
 
     def get_next_card(self):
         if self.current_position >= len(self.cards):
-#             raise NoCardsLeftError
             return None
         out = self.cards[self.current_position]
         self.current_position += 1
